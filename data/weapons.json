@@ -1,0 +1,10 @@
+[
+  {
+    "name": "cattleman",
+    "fullname": "Cattleman Revolver",
+    "type": "Pistol",
+    "description": "Standard issue six-shot revolver",
+    "combat": "Quickly drawn from the hip",
+    "hunting": "Not recommended"
+  }
+]
