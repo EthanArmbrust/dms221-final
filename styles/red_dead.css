@@ -1,0 +1,115 @@
+@font-face {
+  font-family: ChineseRocks;
+  src: url("../fonts/chinese rocks rg.ttf");
+}
+
+body {
+  font-size: 90%;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.15em;
+  background-color: #111111;
+}
+
+#page {
+  max-width: 940px;
+  min-width: 720px;
+  margin: 10px auto;
+  padding: 20px;
+  border: 4px double #f00300;
+  background-image: url("../img/Wood_Background_dark.jpg");
+}
+
+@keyframes change-text-color {
+  from {
+    color: #111111;
+  }
+  to {
+    color: #dddddd;
+  }
+}
+
+#nav-div {
+  margin-top: 20px;
+}
+
+#wrapper {
+  display: flex;
+  background-color: #990000;
+}
+
+#logo > img {
+  width: 500px;
+}
+
+#logo {
+  margin: 10px auto 10px auto;
+  width: 500px;
+}
+
+ul {
+  padding: 05px;
+  margin: 0px auto;
+  border-top: 2px solid #990000;
+  border-bottom: 1px solid #990000;
+  //text-align: center;
+  background-color: #990000;
+  list-style: none;
+}
+
+li {
+  //display: inline-block;
+  margin: 0px 5px;
+}
+
+#images {
+  width: 600px;
+  margin: 20px auto 2px auto;
+}
+
+#images > img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+p {
+  width: 600px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+a {
+  font-family: ChineseRocks;
+  font-size: 150%;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 6px 12px 5px 12px;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+a:hover {
+  color: #dddddd;
+  /*
+  animation-name: change-text-color;
+  animation-duration: 0.3s;
+  */
+}
+
+a {
+  color: #111111;
+}
+p {
+  color: #dddddd;
+}
+
+#images > img {
+  -webkit-filter: grayscale(70%);
+  filter: grayscale(70%);
+  -webkit-transition: 0.5s ease-in-out;
+}
+
+#images > img:hover {
+  -webkit-filter: grayscale(20%);
+  filter: grayscale(20%);
+  -webkit-transition: 0.2s ease-in-out;
+}

@@ -1,0 +1,55 @@
+body {
+  background-color: #333333;
+  font-size: 90%;
+  text-align: center;
+}
+
+a {
+  color: #b5c1ad;
+  text-decoration:none;
+}
+
+a:hover {
+
+}
+
+.header {
+  background-color: #111111;
+  height: 100px;
+  position: fixed;
+  z-index:50;
+}
+
+.nav {
+  float: right;
+  padding:45px 0px 0px 0px;
+  text-align:right;
+}
+
+
+h1 {
+  margin-top: 150px;
+  font-size: 240%;
+}
+
+.date {
+  font-size:75%;
+}
+
+.more-articles {
+  border-top: 1px solid #eeeeee;
+}
+
+.more-articles p {
+  border-bottom: 1px solid #dddddd;
+  padding: 5px 0px 15px 0px;
+}
+
+.more-articles p:last-child {
+  border-bottom: none;
+}
+
+.footer p {
+  text-align: right;
+  color: #cccccc;
+}
