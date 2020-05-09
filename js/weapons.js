@@ -59,23 +59,44 @@ function generate_weapon_elements() {
   weapon_data.forEach((w) => {
     var newDiv = document.createElement("div");
     newDiv.id = w.name;
-    var content = document.createTextNode(w.fullname);
-    newDiv.appendChild(content);
+    newDiv.style.display = "inline-block";
+    var thumbnail = document.createElement("img");
+    thumbnail.setAttribute("src", "img/weapons/" + w.name + ".webp");
+    thumbnail.setAttribute("width", "100");
+    thumbnail.setAttribute("height", "50");
+    newDiv.appendChild(thumbnail);
     var weapon_list = document.getElementById("weapon_list");
     weapon_list.appendChild(newDiv);
   });
 }
 
 function init_mouseover_listeners() {
-  weapon_data.forEach((w) =>
-    document.getElementById(w.name).addEventListener("mouseover", mouseOver)
-  );
+  weapon_data.forEach((w) => {
+    document.getElementById(w.name).addEventListener("mouseover", mouseOver);
+    document.getElementById(w.name).addEventListener("mouseout", mouseOut);
+  });
 }
 
 function mouseOver() {
+  this.style.border = "thick solid red";
   var weapon_img = document.getElementById("weapon_img");
   weapon_img.setAttribute("src", "img/weapons/" + this.id + ".webp");
   weapon_img.removeAttribute("hidden");
+  const weapon_obj = weapon_data.find((element) => element.name == this.id);
+
+  document.getElementById("weapon_name").innerText = weapon_obj.fullname;
+  document.getElementById("weapon_type").innerText = "Type: " + weapon_obj.type;
+  document.getElementById("weapon_desc").innerText =
+    "Description: " + weapon_obj.description;
+  document.getElementById("weapon_combat").innerText =
+    "Combat: " + weapon_obj.combat;
+  document.getElementById("weapon_hunt").innerText =
+    "Hunting: " + weapon_obj.hunting;
+}
+
+function mouseOut() {
+  this.style.border = "none";
+  console.log("mouse out " + this.id);
 }
 
 generate_weapon_elements();
