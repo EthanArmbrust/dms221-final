@@ -60,6 +60,7 @@ function generate_weapon_elements() {
     var newDiv = document.createElement("div");
     newDiv.id = w.name;
     newDiv.style.display = "inline-block";
+    newDiv.style.margin = "2px";
     var thumbnail = document.createElement("img");
     thumbnail.setAttribute("src", "img/weapons/" + w.name + ".webp");
     thumbnail.setAttribute("width", "100");
@@ -78,7 +79,7 @@ function init_mouseover_listeners() {
 }
 
 function mouseOver() {
-  this.style.border = "thick solid red";
+  this.style.border = "2px solid red";
   var weapon_img = document.getElementById("weapon_img");
   weapon_img.setAttribute("src", "img/weapons/" + this.id + ".webp");
   weapon_img.removeAttribute("hidden");
