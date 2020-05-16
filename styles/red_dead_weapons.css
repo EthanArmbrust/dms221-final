@@ -1,0 +1,110 @@
+@font-face {
+  font-family: ChineseRocks;
+  src: url("../fonts/chinese rocks rg.ttf");
+}
+@font-face {
+  font-family: Hapna;
+  src: url("../fonts/Hapna_Slab_Serif_Bold.ttf");
+}
+
+body {
+  font-size: 90%;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: 0.15em;
+  background-color: #111111;
+}
+
+body {
+  background-size: 100%;
+  margin: 10px auto;
+  padding: 20px;
+  background-image: url("../img/Wood_Background_dark.jpg");
+}
+
+@keyframes change-text-color {
+  from {
+    color: #111111;
+  }
+  to {
+    color: #dddddd;
+  }
+}
+
+div#weapon_list {
+  height: 600px;
+  width: 600px;
+  position: absolute;
+  margin: 0 auto;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+div#selected_item {
+  justify-content: center;
+  margin-top: 100%;
+}
+
+.logo {
+  object-fit: contain;
+  height: 100px;
+}
+
+ul {
+  padding: 05px;
+  margin: 0px auto;
+  border-top: 2px solid #990000;
+  border-bottom: 1px solid #990000;
+  background-color: #990000;
+  list-style: none;
+}
+
+#weapon_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  margin: 0px 5px;
+}
+
+.header {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-image: url("../img/arthur_micah_downhill.jpg");
+  background-size: 100%;
+}
+.article-img {
+  width: 460px;
+}
+
+.more-articles {
+  margin: 120px 0px 0px 0px;
+}
+
+h1 {
+  font-family: ChineseRocks;
+  color: #990000;
+}
+
+h2,
+h3 {
+  font-size: 250%;
+  font-family: ChineseRocks;
+}
+
+#logo-div {
+  width: 100%;
+}
+
+p,
+h2,
+h3 {
+  color: #eeeeee;
+}
+p {
+  font-size: 125%;
+  font-family: Hapna Arial;
+  text-align: left;
+}

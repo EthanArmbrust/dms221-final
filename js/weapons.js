@@ -1,3 +1,5 @@
+const red_dead_red = "rgba(99, 0, 0, 0.5)";
+
 var weapon_data = [
   {
     name: "cattleman",
@@ -55,7 +57,50 @@ var weapon_data = [
   },
 ];
 
-function generate_weapon_elements() {
+//place divs in a circle
+//from https://stackoverflow.com/questions/26599782/positioning-divs-in-a-circle-using-javascript
+
+var theta = [];
+
+function generate_thetas(n, rx, ry) {
+  var frags = 360 / n;
+  for (var i = 0; i <= n; i++) {
+    theta.push((frags / 180) * i * Math.PI);
+  }
+}
+
+function generate_weapon_elements(n, rx, ry) {
+  var weapon_list = document.getElementById("weapon_list");
+  var mainHeight = parseInt(
+    window.getComputedStyle(weapon_list).height.slice(0, -2)
+  );
+  var circleArray = [];
+
+  for (var i = 0; i < n; i++) {
+    var w = weapon_data[i];
+    var circle = document.createElement("div");
+    circle.id = w.name;
+    circleArray.push(circle);
+    circleArray[i].posx = Math.round(rx * Math.cos(theta[i])) + "px";
+    circleArray[i].posy = Math.round(ry * Math.sin(theta[i])) + "px";
+    circleArray[i].style.position = "absolute";
+    circleArray[i].style.top =
+      mainHeight / 2 - parseInt(circleArray[i].posy.slice(0, -2)) + "px";
+    circleArray[i].style.left =
+      mainHeight / 2 - parseInt(circleArray[i].posx.slice(0, -2)) + "px";
+    var thumbnail = document.createElement("img");
+    thumbnail.setAttribute("src", "img/weapons/no_bg/" + w.name + ".webp");
+    thumbnail.setAttribute("width", "200");
+    thumbnail.setAttribute("height", "100");
+    circleArray[i].appendChild(thumbnail);
+    weapon_list.insertBefore(
+      circleArray[i],
+      document.getElementById("selected_item")
+    );
+    weapon_list.style.transform = "translate(0px, 0px)";
+  }
+
+  /*
   weapon_data.forEach((w) => {
     var newDiv = document.createElement("div");
     newDiv.id = w.name;
@@ -66,9 +111,9 @@ function generate_weapon_elements() {
     thumbnail.setAttribute("width", "100");
     thumbnail.setAttribute("height", "50");
     newDiv.appendChild(thumbnail);
-    var weapon_list = document.getElementById("weapon_list");
     weapon_list.appendChild(newDiv);
   });
+  */
 }
 
 function init_mouseover_listeners() {
@@ -79,9 +124,10 @@ function init_mouseover_listeners() {
 }
 
 function mouseOver() {
-  this.style.border = "2px solid red";
+  this.style.border = "2px solid " + red_dead_red;
+  this.style.background = red_dead_red;
   var weapon_img = document.getElementById("weapon_img");
-  weapon_img.setAttribute("src", "img/weapons/" + this.id + ".webp");
+  weapon_img.setAttribute("src", "img/weapons/no_bg/" + this.id + ".webp");
   weapon_img.removeAttribute("hidden");
   const weapon_obj = weapon_data.find((element) => element.name == this.id);
 
@@ -97,8 +143,10 @@ function mouseOver() {
 
 function mouseOut() {
   this.style.border = "none";
+  this.style.background = "none";
   console.log("mouse out " + this.id);
 }
 
-generate_weapon_elements();
+generate_thetas(weapon_data.length, 300, 300);
+generate_weapon_elements(weapon_data.length, 300, 300);
 init_mouseover_listeners();
