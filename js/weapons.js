@@ -93,11 +93,7 @@ function generate_weapon_elements(n, rx, ry) {
     thumbnail.setAttribute("width", "200");
     thumbnail.setAttribute("height", "100");
     circleArray[i].appendChild(thumbnail);
-    weapon_list.insertBefore(
-      circleArray[i],
-      document.getElementById("selected_item")
-    );
-    weapon_list.style.transform = "translate(0px, 0px)";
+    weapon_list.appendChild(circleArray[i]);
   }
 
   /*
